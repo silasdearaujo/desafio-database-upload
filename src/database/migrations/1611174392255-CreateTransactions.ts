@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import {MigrationInterface, QueryRunner, Table} from 'typeorm';
 
 export class CreateTransactions1611174392255 implements MigrationInterface {
 
@@ -20,7 +20,9 @@ export class CreateTransactions1611174392255 implements MigrationInterface {
                     },
                     {
                         name: 'value',
-                        type: 'numeric',
+                        type: 'decimal',
+                        precision: 10,
+                        scale: 2,
                     },
                     {
                         name: 'type',
@@ -60,5 +62,4 @@ export class CreateTransactions1611174392255 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('transactions');
     }
-
 }
